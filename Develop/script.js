@@ -7,6 +7,8 @@ var generateBtn = document.querySelector("#generate");
 
 var passwordOptions = '';
 
+var newPassword = '';
+
 var criterias = function() {
   var passwordLength = window.prompt("How long would you like your password to be? (8-128 characters)");
   if (passwordLength < 8 || passwordLength > 128) {
@@ -34,14 +36,16 @@ var criterias = function() {
 
   if (dataSpecial === true) {
     passwordOptions.concat(specialChars);
-  } 
-
-  writePassword();
+  }  
 };
 
-function generatePassword() {
-  let newPassword = "";
 
+function generatePassword() {
+  for (var i = 0; i <= passwordLength; i++) {
+    var randomPick = Math.floor(Math.Random() * passwordOptions.length);
+    newPassword += passwordOptions.substring(randomPick, randomPick +1);
+  }
+  
 
 }
 // Write password to the #password input
