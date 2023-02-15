@@ -38,21 +38,18 @@ var criterias = function() {
     passwordOptions.concat(specialChars);
   }  
 
-  writePassword();
-};
-
-
-function generatePassword() {
-  for (var i = 0; i <= passwordLength; i++) {
-    var randomPick = Math.floor(Math.Random() * passwordOptions.length);
-    newPassword += passwordOptions.substring(randomPick, randomPick +1);
+  function generatePassword() {
+    for (var i = 0; i <= passwordLength; i++) {
+      var randomPick = Math.floor(Math.random() * passwordOptions.length);
+      newPassword += passwordOptions.substring(randomPick, randomPick +1);
+    }
   }
-}
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-  passwordText.value = password;
-}
+  generatePassword();
+
+  var password = document.querySelector('#password');
+  var writePassword = newPassword;
+
+  password.value = writePassword;
+};
 
 generateBtn.addEventListener("click", criterias);
