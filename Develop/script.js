@@ -1,54 +1,51 @@
-var lowerCase = "abcdefghijklmnopqrstuvwxyz";
-var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-var numbers = '0123456789';
-var specialChars = '!@#$%^&*()';
+var  lowerCase: "abcdefghijklmnopqrstuvwxyz";
+var  upperCase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var  numbers: '0123456789';
+var  specialChars: '!@#$%^&*()';
 
 var generateBtn = document.querySelector("#generate");
 
-var passwordLength = window.prompt("How long would you like your password to be? (8-128 characters)");
-var dataLower = window.prompt("Y or N: Do you want to include lowercase letters?"); 
-var dataUpper = window.prompt("Y or N: Do you want to include uppercase letters?");
-var dataNumbers = window.prompt("Y or N: Do you want to include numerical digits?");
-var dataSpecial = window.prompt("Y or N: Do you want to include special characters?");
-
-dataLower = dataLower.toUpperCase();
-dataUpper = dataUpper.toUpperCase();
-dataNumbers = dataNumbers.toUpperCase();
-dataSpecial = dataSpecial.toUpperCase();
+var passwordOptions = '';
 
 var criterias = function() {
-  passwordLength();
-    if (passwordLength < 8 || passwordLength > 128) {
-      window.alert("That was not a valid answer");
-      return passwordLength();   
-    } else {
-      dataLower();
-    } 
+  var passwordLength = window.prompt("How long would you like your password to be? (8-128 characters)");
+  if (passwordLength < 8 || passwordLength > 128) {
+    window.alert("That was not a valid answer");
+    return criterias(); 
+  }
+  // binary options - utilize .confirm instead of .prompt
+  var dataLower = window.confirm("Do you want to include lowercase letters?n/Press Okay for YES or Cancel for NO"); 
+  var dataUpper = window.confirm("Do you want to include uppercase letters?n/Press Okay for YES or Cancel for NO");
+  var dataNumbers = window.confirm("Do you want to include numerical digits?n/Press Okay for YES or Cancel for NO");
+  var dataSpecial = window.confirm("Do you want to include special characters?n/Press Okay for YES or Cancel for NO");
 
-    if (dataLower !== "Y" || dataLower !== "N") {
-      window.alert("That was not a valid answer");
-      return dataLower();   
-    } else {
-      dataUpper();
-    } 
+  dataLower = dataLower.toUpperCase();
+  dataUpper = dataUpper.toUpperCase();
+  dataNumbers = dataNumbers.toUpperCase();
+  dataSpecial = dataSpecial.toUpperCase();
+
+    // if (dataLower === true) {
+    //   passwordOptions.concat(lowerCase);
+    //
+    // } 
 
     if (dataUpper !== "Y" || dataUpper !== "N") {
       window.alert("That was not a valid answer");
-      return dataUpper();   
+      return dataUpper;   
     } else {
-      dataNumbers();
+      dataNumbers;
     }
 
     if (dataNumbers !== "Y" || dataNumbers !== "N") {
       window.alert("That was not a valid answer");
-      return dataNumbers();   
+      return dataNumbers;   
     } else {
-      dataSpecial();
+      dataSpecial;
     }
 
     if (dataSpecial !== "Y" || dataSpecial !== "N") {
       window.alert("That was not a valid answer");
-      return dataSpecial();   
+      return dataSpecial;   
     } else {
       window.alert("Thank you!");
     }
@@ -56,6 +53,7 @@ var criterias = function() {
 };
 
 function generatePassword() {
+  let newPassword = "";
 
 
 }
