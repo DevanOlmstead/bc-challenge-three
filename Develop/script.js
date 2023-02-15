@@ -16,10 +16,10 @@ var criterias = function() {
     return criterias(); 
   }
   // binary options - utilize .confirm instead of .prompt
-  var dataLower = window.confirm("Do you want to include lowercase letters?n/Press Okay for YES or Cancel for NO"); 
-  var dataUpper = window.confirm("Do you want to include uppercase letters?n/Press Okay for YES or Cancel for NO");
-  var dataNumbers = window.confirm("Do you want to include numerical digits?n/Press Okay for YES or Cancel for NO");
-  var dataSpecial = window.confirm("Do you want to include special characters?n/Press Okay for YES or Cancel for NO");
+  var dataLower = window.confirm("Do you want to include lowercase letters?\nPress Okay for YES or Cancel for NO"); 
+  var dataUpper = window.confirm("Do you want to include uppercase letters?\nPress Okay for YES or Cancel for NO");
+  var dataNumbers = window.confirm("Do you want to include numerical digits?\nPress Okay for YES or Cancel for NO");
+  var dataSpecial = window.confirm("Do you want to include special characters?\nPress Okay for YES or Cancel for NO");
 
 
   if (dataLower === true) {
@@ -37,6 +37,8 @@ var criterias = function() {
   if (dataSpecial === true) {
     passwordOptions.concat(specialChars);
   }  
+
+  writePassword();
 };
 
 
@@ -45,17 +47,12 @@ function generatePassword() {
     var randomPick = Math.floor(Math.Random() * passwordOptions.length);
     newPassword += passwordOptions.substring(randomPick, randomPick +1);
   }
-  
-
 }
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
   passwordText.value = password;
-
 }
 
-// Add event listener to generate button
 generateBtn.addEventListener("click", criterias);
