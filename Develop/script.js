@@ -1,7 +1,7 @@
-var  lowerCase: "abcdefghijklmnopqrstuvwxyz";
-var  upperCase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-var  numbers: '0123456789';
-var  specialChars: '!@#$%^&*()';
+var  lowerCase = "abcdefghijklmnopqrstuvwxyz";
+var  upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var  numbers = '0123456789';
+var  specialChars = '!@#$%^&*()';
 
 var generateBtn = document.querySelector("#generate");
 
@@ -19,37 +19,24 @@ var criterias = function() {
   var dataNumbers = window.confirm("Do you want to include numerical digits?n/Press Okay for YES or Cancel for NO");
   var dataSpecial = window.confirm("Do you want to include special characters?n/Press Okay for YES or Cancel for NO");
 
-  dataLower = dataLower.toUpperCase();
-  dataUpper = dataUpper.toUpperCase();
-  dataNumbers = dataNumbers.toUpperCase();
-  dataSpecial = dataSpecial.toUpperCase();
 
-    // if (dataLower === true) {
-    //   passwordOptions.concat(lowerCase);
-    //
-    // } 
+  if (dataLower === true) {
+    passwordOptions.concat(lowerCase);
+  } 
 
-    if (dataUpper !== "Y" || dataUpper !== "N") {
-      window.alert("That was not a valid answer");
-      return dataUpper;   
-    } else {
-      dataNumbers;
-    }
+  if (dataUpper === true) {
+    passwordOptions.concat(upperCase);
+  } 
 
-    if (dataNumbers !== "Y" || dataNumbers !== "N") {
-      window.alert("That was not a valid answer");
-      return dataNumbers;   
-    } else {
-      dataSpecial;
-    }
+  if (dataNumbers === true) {
+    passwordOptions.concat(numbers);
+  } 
 
-    if (dataSpecial !== "Y" || dataSpecial !== "N") {
-      window.alert("That was not a valid answer");
-      return dataSpecial;   
-    } else {
-      window.alert("Thank you!");
-    }
-    writePassword();
+  if (dataSpecial === true) {
+    passwordOptions.concat(specialChars);
+  } 
+
+  writePassword();
 };
 
 function generatePassword() {
