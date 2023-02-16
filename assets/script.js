@@ -23,19 +23,19 @@ var criterias = function() {
 
 
   if (dataLower === true) {
-    passwordOptions.concat(lowerCase);
+    passwordOptions = passwordOptions.concat(lowerCase);
   } 
 
   if (dataUpper === true) {
-    passwordOptions.concat(upperCase);
+    passwordOptions = passwordOptions.concat(upperCase);
   } 
 
   if (dataNumbers === true) {
-    passwordOptions.concat(numbers);
+    passwordOptions = passwordOptions.concat(numbers);
   } 
 
   if (dataSpecial === true) {
-    passwordOptions.concat(specialChars);
+    passwordOptions = passwordOptions.concat(specialChars);
   }  
 
   function generatePassword() {
@@ -47,9 +47,7 @@ var criterias = function() {
   generatePassword();
 
   var password = document.querySelector('#password');
-  var writePassword = newPassword;
-
-  password.value = writePassword;
+  password.value = newPassword;
 };
 
 generateBtn.addEventListener("click", criterias);
